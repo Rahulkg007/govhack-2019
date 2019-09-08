@@ -33,6 +33,15 @@ img {
   margin: 50px auto;
 }
 
+.small-plots {
+  max-width: 500px;
+  margin: 30px auto;
+}
+
 .app-maps {
   max-width: 960px;
+}
+
+.wordcloud {
+  max-width: 650px;
 }

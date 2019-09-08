@@ -6,10 +6,10 @@ class NavBar extends Component {
   render() {
     return (
       <header>
-        <div id="logo"><Link to="">Deep Fried Brains</Link></div>
+        <div id="logo"><Link to="/govhack-2019">Deep Fried Brains</Link></div>
         <ul id="headerButtons">
           <li className="navButton">
-            <Link to="">Home</Link>
+            <Link to="/govhack-2019">Home</Link>
           </li>
           
           <li className="navButton">
