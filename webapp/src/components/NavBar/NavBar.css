@@ -1,0 +1,14 @@
+header {
+  text-align: center;
+  padding: 15px;
+}
+
+header ul {
+  list-style-type: none;
+}
+
+#logo {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.2em;
+  font-weight: 300;
+}
