@@ -6,100 +6,69 @@ const Demographic = () => {
     <div className="mapContainer">
       <h1>Demographic Analysis</h1>
 
+      <h2>Suburbs Population</h2>
       <img
         className="app-plots"
-        src={require("../../images/ATO.jpg")}
-        alt="ATO"
+        src={require("../../images/PopulationbySuburb.jpg")}
+        alt="PopulationbySuburb"
+      />
+      <HorizontalLine />
+      <img
+        className="app-plots"
+        src={require("../../images/PopulationSeries.jpg")}
+        alt="PopulationSeries"
+      />
+      <HorizontalLine />
+      <img
+        className="app-plots"
+        src={require("../../images/PopulationbySex.jpg")}
+        alt="PopulationbySex"
+      />
+      <HorizontalLine />
+      <img
+        className="app-plots"
+        src={require("../../images/PopulationbyAge.jpg")}
+        alt="PopulationbyAge"
       />
 
+      <h2>Time Series</h2>
+      <img
+        className="app-plots"
+        src={require("../../images/RentTimeSeries.jpg")}
+        alt="RentTimeSeries"
+      />
       <p>
-        One morning, when Gregor Samsa woke from troubled dreams, he found
-        himself transformed in his bed into a horrible vermin. He lay on his
-        armour-like back, and if he lifted his head a little he could see his
-        brown belly, slightly domed and divided by arches into stiff sections.
-        The bedding was hardly able to cover it and seemed ready to slide off
-        any moment.
+        Along with the house price analysis, we also created a ten years’ time
+        series of renting data, which proves that our three chosen suburbs rent
+        drastically increased over the time in the same rate, however, to
+        continue with the trend of other analysis Toorak is the most expensive
+        one.
       </p>
+      <HorizontalLine />
+      <img
+        className="app-plots"
+        src={require("../../images/HousePriceTimeSeries.jpg")}
+        alt="HousePriceTimeSeries"
+      />
       <p>
-        His many legs, pitifully thin compared with the size of the rest of him,
-        waved about helplessly as he looked. "What's happened to me?" he
-        thought. It wasn't a dream. His room, a proper human room although a
-        little too small, lay peacefully between its four familiar walls.
+        After collecting house prices for the last ten years we obtained a time
+        series graph, which clearly illustrates that Toorak’s properties are by
+        far the more expensive ones, whereas Brunswick’s and Footscray’s remain
+        to be more “affordable” over the time not showing sharp increases.
       </p>
-
       <HorizontalLine />
 
-      <h2>Another Chart</h2>
-
       <img
         className="app-plots"
-        src={require("../../images/Sports.jpg")}
-        alt="ATO"
+        src={require("../../images/OwnRentProportion.jpg")}
+        alt="OwnRentProportion"
       />
-
       <p>
-        One morning, when Gregor Samsa woke from troubled dreams, he found
-        himself transformed in his bed into a horrible vermin. He lay on his
-        armour-like back, and if he lifted his head a little he could see his
-        brown belly, slightly domed and divided by arches into stiff sections.
-        The bedding was hardly able to cover it and seemed ready to slide off
-        any moment.
-      </p>
-      <p>
-        His many legs, pitifully thin compared with the size of the rest of him,
-        waved about helplessly as he looked. "What's happened to me?" he
-        thought. It wasn't a dream. His room, a proper human room although a
-        little too small, lay peacefully between its four familiar walls.
-      </p>
-
-      <HorizontalLine />
-
-      <h2>Another Chart</h2>
-
-      <img
-        className="app-plots"
-        src={require("../../images/Sports.jpg")}
-        alt="ATO"
-      />
-
-      <p>
-        One morning, when Gregor Samsa woke from troubled dreams, he found
-        himself transformed in his bed into a horrible vermin. He lay on his
-        armour-like back, and if he lifted his head a little he could see his
-        brown belly, slightly domed and divided by arches into stiff sections.
-        The bedding was hardly able to cover it and seemed ready to slide off
-        any moment.
-      </p>
-      <p>
-        His many legs, pitifully thin compared with the size of the rest of him,
-        waved about helplessly as he looked. "What's happened to me?" he
-        thought. It wasn't a dream. His room, a proper human room although a
-        little too small, lay peacefully between its four familiar walls.
-      </p>
-
-      <HorizontalLine />
-
-      <h2>Another Chart</h2>
-
-      <img
-        className="app-plots"
-        src={require("../../images/Sports.jpg")}
-        alt="ATO"
-      />
-
-      <p>
-        One morning, when Gregor Samsa woke from troubled dreams, he found
-        himself transformed in his bed into a horrible vermin. He lay on his
-        armour-like back, and if he lifted his head a little he could see his
-        brown belly, slightly domed and divided by arches into stiff sections.
-        The bedding was hardly able to cover it and seemed ready to slide off
-        any moment.
-      </p>
-      <p>
-        His many legs, pitifully thin compared with the size of the rest of him,
-        waved about helplessly as he looked. "What's happened to me?" he
-        thought. It wasn't a dream. His room, a proper human room although a
-        little too small, lay peacefully between its four familiar walls.
+        An additional comparation of data was made, in this occasion we
+        calculated the proportion of owner and rented dwellings all over the
+        three suburbs, were we found out that the majority of Toorak’s
+        population own their houses, whereas Footscray’s population are renting
+        in majority.
       </p>
     </div>
   );
