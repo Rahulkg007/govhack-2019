@@ -119,6 +119,8 @@ const HomePage = props => {
         pri id, et civibus appareat accusamus nec, hinc expetenda euripidis his
         ut.
       </p>
+
+      <img className="app-plots" src={require('../../images/ATO.jpg')} alt="ATO" />
     </div>
   );
 };

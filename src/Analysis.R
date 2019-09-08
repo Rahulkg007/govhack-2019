@@ -49,7 +49,7 @@ ggplot(ato, aes(x=reorder(SuburbTown, Average.taxable.income.or.loss3..),y= Aver
   xlab('') + ylab('Average taxable income (AUD)') + ggtitle('Average Taxable Income (ATO)') +
   labs(subtitle="Australian Taxation Office - Taxation Statistics 2016-17") +
   theme(plot.subtitle=element_text(size=9, face="italic", color="#666666"))
-ggsave("../webapp/src/images/ATO.jpg")
+ggsave("../webapp/src/images/ATO.jpg", width = 5, height = 3)
 
 
 

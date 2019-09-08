@@ -15,3 +15,7 @@ html, body, #map_canvas {
 #map_canvas {
     margin-top: 650px;
 }
+
+.app-plots {
+    width:600px;
+}
