@@ -6,6 +6,15 @@ const SocialMedia = () => {
     <div className="mapContainer">
       <h1>Social Media Analysis</h1>
 
+      <p>
+        After collecting multiple reviews from the three suburbs in
+        www.homely.com and creating a word cloud analysis, we found some
+        differences between suburbs which led us to think that this information
+        could expose the gentrification level in the analysed suburbs. For
+        instance, Toorak most repeated words were Great, Mansion, high,
+        expensive, millionaire, etc, whereas, Footscray some of the most
+        frequent words were truck, public, addict, to name a few.
+      </p>
       <h3>Brunswick Word Cloud</h3>
       <img
         className="app-plots wordcloud"
@@ -27,24 +36,16 @@ const SocialMedia = () => {
         alt="FootscrayWordCloud"
       />
 
-      <p>
-        One morning, when Gregor Samsa woke from troubled dreams, he found
-        himself transformed in his bed into a horrible vermin. He lay on his
-        armour-like back, and if he lifted his head a little he could see his
-        brown belly, slightly domed and divided by arches into stiff sections.
-        The bedding was hardly able to cover it and seemed ready to slide off
-        any moment.
-      </p>
-      <p>
-        His many legs, pitifully thin compared with the size of the rest of him,
-        waved about helplessly as he looked. "What's happened to me?" he
-        thought. It wasn't a dream. His room, a proper human room although a
-        little too small, lay peacefully between its four familiar walls.
-      </p>
-
       <HorizontalLine />
 
       <h2>Usual behaviour of suburbs</h2>
+      <p>
+        After analysing Instagram and suburbs’ reviews we also searched for the
+        most rated places to visit around Brunswick, Toorak and Footscray, where
+        we found that the three suburbs are offering the same type of
+        activities, such as Food and hotels, despite the gentrification level
+        they all have.
+      </p>
       <h3>Toorak</h3>
       <img
         className="small-plots"
@@ -74,24 +75,33 @@ const SocialMedia = () => {
         src={require("../../images/socialMediaInsta.jpg")}
         alt="socialMediaInsta"
       />
-<HorizontalLine />
+      <HorizontalLine />
       <img
         className="app-plots"
         src={require("../../images/socialMediaInsta_Toorak.jpg")}
         alt="socialMediaInsta_Toorak"
       />
-<HorizontalLine />
+      <HorizontalLine />
       <img
         className="app-plots"
         src={require("../../images/socialMediaInsta_Brunswick.jpg")}
         alt="socialMediaInsta_Brunswick"
       />
-<HorizontalLine />
+      <HorizontalLine />
       <img
         className="app-plots"
         src={require("../../images/socialMediaInsta_Footscray.jpg")}
         alt="socialMediaInsta_Footscray"
       />
+
+      <h2>References</h2>
+      <ul>
+        <li>https://www.homely.com.au/brunswick-moreland-melbourne-greater-victoria</li>
+        <li>https://www.homely.com.au/brunswick-moreland-melbourne-greater-victoria</li>
+        <li>https://www.homely.com.au/footscray-maribyrnong-melbourne-greater-victoria</li>
+        <li>https://www.homely.com.au/toorak-stonnington-melbourne-greater-victoria</li>
+        <li>https://www.dhhs.vic.gov.au/publications/rental-report</li>
+      </ul>
     </div>
   );
 };
