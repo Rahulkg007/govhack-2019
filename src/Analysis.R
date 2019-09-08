@@ -59,6 +59,7 @@ ggsave("../webapp/src/images/ATO.jpg", width = 5, height = 3)
 
 Pop = read_csv("../data/Population_by_Age_Sex.csv")
 Pop_pct = read_csv("../data/Population_by_Age_Sex_pct.csv")
+Pop_series = read_csv("../data/Population_series.csv")
 Pop <- melt(Pop, id=(c("Suburb", "Sex")))
 Pop_pct <- melt(Pop_pct, id=(c("Suburb", "Sex")))
 #Pop_Poportion = mutate(Pop, 
@@ -85,6 +86,12 @@ ggplot(Pop_pct, aes(x = factor(Suburb), y = Pop_pct$value, fill = factor(Pop_pct
   geom_bar(stat="identity", position = "fill", width = 0.7) +   labs(x = "", y = NULL, fill = "Age Group") +
   theme_minimal(base_size = 12)+  theme(panel.grid = element_blank())
 ggsave("../webapp/src/images/PopulationbyAge.jpg", width = 5, height = 3)
+
+ggplot(Pop_series, aes(x = Year, y = Person)) + 
+  geom_line(aes(color = Suburb), size = 1) +
+  scale_color_manual(values = c("#00AFBB", "#E7B800","#FC4E07")) +
+  theme_bw()
+ggsave("../webapp/src/images/PopulationSeries.jpg", width = 5, height = 3)
 
 
 
