@@ -11,12 +11,20 @@ class NavBar extends Component {
           <li className="navButton">
             <Link to="">Home</Link>
           </li>
-          <li className="navButton">
-            <Link to="/social-media">Social Media</Link>
-          </li>
+          
           <li className="navButton">
             <Link to="/demographic">Demographic</Link>
           </li>
+
+          <li className="navButton">
+            <Link to="/statistics">Statistics</Link>
+          </li>
+
+          <li className="navButton">
+            <Link to="/social-media">Social Media</Link>
+          </li>
+
+
         </ul>
       </header>
     );
