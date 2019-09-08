@@ -79,7 +79,7 @@ ggplot(Pop, aes(x = Suburb, y = value)) +
   labs(title="Number of population by Sex",
        x="Suburb",
        y="Number of population") +
-  grey_theme+  theme(panel.grid = element_blank())
+  theme_minimal()
 ggsave("../webapp/src/images/PopulationbySex.jpg", width = 5, height = 3)
 
 ggplot(Pop_pct, aes(x = factor(Suburb), y = Pop_pct$value, fill = factor(Pop_pct$variable))) +
@@ -88,7 +88,7 @@ ggplot(Pop_pct, aes(x = factor(Suburb), y = Pop_pct$value, fill = factor(Pop_pct
 ggsave("../webapp/src/images/PopulationbyAge.jpg", width = 5, height = 3)
 
 ggplot(Pop_series, aes(x = Year, y = Person)) + 
-  geom_line(aes(color = Suburb), size = 2) +
+  geom_line(aes(color = Suburb)) + geom_point(size=.6) +
   scale_color_manual(values = c("#00AFBB", "#E7B800","#FC4E07"))+
   labs(title="",
      x="Year",

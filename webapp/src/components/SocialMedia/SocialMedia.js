@@ -74,19 +74,19 @@ const SocialMedia = () => {
         src={require("../../images/socialMediaInsta.jpg")}
         alt="socialMediaInsta"
       />
-
+<HorizontalLine />
       <img
         className="app-plots"
         src={require("../../images/socialMediaInsta_Toorak.jpg")}
         alt="socialMediaInsta_Toorak"
       />
-
+<HorizontalLine />
       <img
         className="app-plots"
         src={require("../../images/socialMediaInsta_Brunswick.jpg")}
         alt="socialMediaInsta_Brunswick"
       />
-
+<HorizontalLine />
       <img
         className="app-plots"
         src={require("../../images/socialMediaInsta_Footscray.jpg")}

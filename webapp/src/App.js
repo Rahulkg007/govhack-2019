@@ -1,14 +1,10 @@
 import React from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./components/HomePage/HomePage";
 import SocialMedia from "./components/SocialMedia/SocialMedia";
 import Demographic from "./components/Demographic/Demographic";
-import Statistics from "./components/Statistics/Statistics";
 import Footer from "./components/footer/footer";
 
 function App() {
@@ -37,13 +33,6 @@ function App() {
           path="/demographic"
           component={Demographic}
         />
-        <Route
-          name="statistics"
-          exact
-          path="/statistics"
-          component={Statistics}
-        />
-
         <Footer />
       </div>
     </Router>

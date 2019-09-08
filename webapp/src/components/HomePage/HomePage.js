@@ -5,34 +5,51 @@ const HomePage = props => {
   return (
     <div className="mapContainer">
       <h1>Suburb Gentrification</h1>
-      <img
-        className="app-maps"
-        src={require("../../images/maps/Suburbs_Sports_and_Recreational_Activities.jpg")}
-        alt="Suburbs_Sports_and_Recreational_Activities"
-      />
-      <p>
-        One morning, when Gregor Samsa woke from troubled dreams, he found
-        himself transformed in his bed into a horrible vermin. He lay on his
-        armour-like back, and if he lifted his head a little he could see his
-        brown belly, slightly domed and divided by arches into stiff sections.
-        The bedding was hardly able to cover it and seemed ready to slide off
-        any moment.
-      </p>
-      <p>
-        His many legs, pitifully thin compared with the size of the rest of him,
-        waved about helplessly as he looked. "What's happened to me?" he
-        thought. It wasn't a dream. His room, a proper human room although a
-        little too small, lay peacefully between its four familiar walls.
-      </p>
 
-      <HorizontalLine />
-
-      <h2>Australian Taxation Office</h2>
+      <h2>House Price 2018</h2>
       <img
         className="app-plots"
-        src={require("../../images/ATO.jpg")}
-        alt="ATO"
+        src={require("../../images/maps/HousePrice2018.jpeg")}
+        alt="HousePrice2018"
       />
+      <HorizontalLine />
+      <h2>House Prices Analysis</h2>
+      <img
+        className="app-plots"
+        src={require("../../images/maps/HousePrice2018MoransI.jpeg")}
+        alt="HousePrice2018MoransI"
+      />
+      <HorizontalLine />
+      <h2>House Prices change</h2>
+      <img
+        className="app-plots"
+        src={require("../../images/maps/HousePriceChange.jpeg")}
+        alt="HousePriceChange"
+      />
+      <HorizontalLine />
+      <h2>House Prices change Analysis</h2>
+      <img
+        className="app-plots"
+        src={require("../../images/maps/HousePriceChangeMoransI.jpeg")}
+        alt="HousePriceChangeMoransI"
+      />
+
+<HorizontalLine />
+      <h2>Domestic Building Permits</h2>
+      <img
+        className="app-plots"
+        src={require("../../images/maps/DomesticBuildingPermitsCount2.jpeg")}
+        alt="DomesticBuildingPermitsCount2"
+      />
+
+<HorizontalLine />
+      <h2>Domestic Building Permits Average Cost</h2>
+      <img
+        className="app-plots"
+        src={require("../../images/maps/DomesticBuildingPermitsAvgCost2.jpeg")}
+        alt="DomesticBuildingPermitsAvgCost2"
+      />
+
     </div>
   );
 };

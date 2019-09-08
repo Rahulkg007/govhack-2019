@@ -32,17 +32,17 @@ grey_theme <- theme(axis.text.x = element_text(colour = "grey", size = 10, angle
 
 
 ggplot(socialMediaInsta, aes(x=reorder(Category,value),y=value))+
-  geom_bar(stat = "identity", aes(fill = Suburb), position = "dodge") +
+  geom_bar(stat = "identity", aes(fill = variable), position = "dodge") +
   xlab("Categories") + 
   ylab("Numbers") +
   coord_flip() +
   ggtitle("Number of photos (out of 200 for each Suburb)") +
   theme_minimal() + 
-  theme(plot.title = element_text(, size = 10, hjust = 0.5),
+  theme(plot.title = element_text(size = 10, hjust = 0.5),
         axis.text.y = element_text(color = "grey20", size = 5, angle = 0, hjust = .5, vjust = .5, face = "plain"))
 
 
-ggsave("../webapp/src/images/socialMediaInsta.jpg", width = 5, height = 3)
+ggsave("../webapp/src/images/socialMediaInsta.jpg", width = 5, height = 4)
 
 # ---------------------------------------------
 # Top in Brunswick
@@ -61,7 +61,7 @@ ggplot(socialMediaInsta_Brunswick, aes(x=reorder(Category,value),y=value))+
   coord_flip() +
   ggtitle("Number of photos in Brunswick") +
   theme_minimal() + 
-  theme(plot.title = element_text(, size = 10, hjust = 0),
+  theme(plot.title = element_text(size = 10, hjust = 0),
         axis.text.y = element_text(color = "grey20", size = 8, angle = 0, hjust = .5, vjust = .5, face = "plain"))
 
 
