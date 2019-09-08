@@ -1,14 +1,37 @@
 header {
   text-align: center;
-  padding: 15px;
+  /* padding: 15px; */
+  background-color: #24292e;
+  color: hsla(0, 0%, 100%, 0.7);
 }
 
 header ul {
   list-style-type: none;
+  display: inline-flex;
+}
+
+header li {
+  list-style-type: none;
+  margin: 0;
+  font-size: 2.2vh;
+}
+
+header li a {
+  text-decoration: none;
+  color: hsla(0, 0%, 100%, 0.7);
+  padding: 2vw;
+  font-family: "Nunito", sans-serif;
 }
 
 #logo {
-  font-family: "Roboto", sans-serif;
-  font-size: 2.2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
   font-weight: 300;
+  padding: 25px 0;
+}
+
+#logo a {
+  text-decoration: none;
+  /* color: #fff9a2; */
+  color: hsla(0, 0%, 100%, 0.7);
 }
