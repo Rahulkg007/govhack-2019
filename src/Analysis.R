@@ -58,42 +58,19 @@ ggsave("../webapp/src/images/ATO.jpg", width = 5, height = 3)
 # ----------------------------------
 
 Pop = read_csv("../data/Population_by_Age_Sex.csv")
+Pop_pct = read_csv("../data/Population_by_Age_Sex_pct.csv")
 Pop <- melt(Pop, id=(c("Suburb", "Sex")))
+Pop_pct <- melt(Pop_pct, id=(c("Suburb", "Sex")))
+#Pop_Poportion = mutate(Pop, 
+#                       Pop_pct = Pop$value / sum(value))
+
 
 ggplot(Pop, aes(x=reorder(Suburb,value),y=value)) +
   geom_bar(stat='identity', fill="#2c7fb8",width=0.6) + 
   theme_minimal() + coord_flip()+xlab('') + ylab('Number of population') + ggtitle('Estimated population 30 June 2018') +
   labs(subtitle="Australian Bureau of Statistics 29 August 2019") +
   theme(plot.subtitle=element_text(size=9, face="italic", color="#666666"))
-ggsave("../webapp/src/images/Population1.jpg")
-
-ggplot(Pop, aes(x=reorder(Suburb,value),y=value))+geom_bar(stat = "identity", aes(fill = variable), position = "dodge") +
-  xlab("Months") + ylab("Number of population") +coord_flip()+
-  ggtitle("Number of population by Age") +
-  theme_minimal()
-ggsave("../webapp/src/images/Population2.jpg")
-
-ggplot(Pop, aes(x=reorder(Suburb,value),y=value))+geom_bar(stat = "identity", aes(fill = Sex), position = "dodge") +
-  xlab("Months") + ylab("Number of population") +coord_flip()+
-  ggtitle("Number of population by Age") +
-  theme_minimal()
-ggsave("../webapp/src/images/Population3.jpg")
-
-grey_theme <- theme(axis.text.x = element_text(colour = "grey", size = 10, angle = 45, hjust = 0.5, vjust = 0.5),
-                      axis.text.y = element_text(colour = "grey", size = 10),
-                      text = element_text(size = 12),
-                      plot.title = element_text(hjust = 0.5))
-
-
-ggplot(Pop, aes(x = Suburb, y = value)) +
-  geom_bar(stat = "identity",  color='steelblue',fill='steelblue',position = "dodge") +
-  facet_wrap(~ variable) +
-  labs(title="Number of population by Age",
-       x="Suburb",
-       y="Number of population") +
-  grey_theme +
-  theme(panel.grid = element_blank())
-ggsave("../webapp/src/images/Population4.jpg")
+ggsave("../webapp/src/images/PopulationbySuburb.jpg", width = 5, height = 3)
 
 ggplot(Pop, aes(x = Suburb, y = value)) +
   geom_bar(stat = "identity",  color='steelblue',fill='steelblue',position = "dodge") +
@@ -102,7 +79,14 @@ ggplot(Pop, aes(x = Suburb, y = value)) +
        x="Suburb",
        y="Number of population") +
   grey_theme+  theme(panel.grid = element_blank())
-ggsave("../webapp/src/images/Population5.jpg")
+ggsave("../webapp/src/images/PopulationbySex.jpg", width = 5, height = 3)
+
+ggplot(Pop_pct, aes(x = factor(Suburb), y = Pop_pct$value, fill = factor(Pop_pct$variable))) +
+  geom_bar(stat="identity", position = "fill", width = 0.7) +   labs(x = "", y = NULL, fill = "Age Group") +
+  theme_minimal(base_size = 12)+  theme(panel.grid = element_blank())
+ggsave("../webapp/src/images/PopulationbyAge.jpg", width = 5, height = 3)
+
+
 
 
 
