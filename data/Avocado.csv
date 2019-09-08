@@ -1,3 +1,9 @@
-﻿,2015,2016,2017,2018
-Total Sales,7723.94,7517.8,8669.56,1746.4
-Average Price,1.38,1.34,1.52,1.35
+﻿Year,Price,Category
+2015-01-01,1.38,Avocado_Average_Price
+2016-01-01,1.34,Avocado_Average_Price
+2017-01-01,1.52,Avocado_Average_Price
+2018-01-01,1.35,Avocado_Average_Price
+2015-01-01,0.9,Brunswick
+2016-01-01,0.9,Brunswick
+2017-01-01,1.2,Brunswick
+2018-01-01,1.1,Brunswick
