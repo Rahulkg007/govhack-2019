@@ -42,7 +42,7 @@ ggplot(socialMediaInsta, aes(x=reorder(Category,value),y=value))+
         axis.text.y = element_text(color = "grey20", size = 5, angle = 0, hjust = .5, vjust = .5, face = "plain"))
 
 
-ggsave("../webapp/src/images/socialMediaInsta.jpg")
+ggsave("../webapp/src/images/socialMediaInsta.jpg", width = 5, height = 3)
 
 # ---------------------------------------------
 # Top in Brunswick
