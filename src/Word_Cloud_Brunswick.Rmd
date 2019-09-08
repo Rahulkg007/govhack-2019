@@ -1,0 +1,204 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+---
+title: "Brunswick, Footscray and Toorak text mining"
+author: "Deep_Fried_Brain"
+date: "07/09/2019"
+output:
+  html_document: default
+  word_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+import required packages
+```{r}
+install.packages("tm")  # for text mining
+install.packages("SnowballC") # for text stemming
+install.packages("wordcloud") # word-cloud generator 
+install.packages("RColorBrewer") # color palettes
+```
+load packages
+```{r}
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+```
+## Notes on the data source and results
+- reviews are collected from 'google reviews'
+- good reviews are sorted by 'highest ranking', up to first 100 with >3 stars are copied
+- bad reviews are sorted by 'lowest ranking', up to first 100 with 3 or less stars are copied
+- the google reviews are copied into an excel spreadsheet, separated by tabs for park name, good & bad
+- if no text is given the review is assigned 'blank', this 'blank' is not included in the final text mining/word count
+- the reviews are saved as text files, imported into 'R' for text mining
+- the results of text mining in 'R' are copied back into the excel spreadsheet, tabs labelled 'text mining', for further analysis/data visulisation
+- word clouds are also generated in 'R', which may be copied as an image into another document
+## Analyse the data
+read the text file
+PPG = Toorak Reviews
+```{r text}
+filePathPPG <- "../data/Toorak.txt"
+textPPG <- readLines(filePathPPG)
+```
+Load the data as a corpus
+Inspect the content of the text file
+```{r}
+docsPPG <- Corpus(VectorSource(textPPG))
+inspect(docsPPG)
+```
+Transformation is performed using tm_map() function to replace, for example, special characters from the text.
+Replacing “/”, “@” and “|” with space:
+Inspect the content of the text file
+```{r}
+toSpacePPG <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docsPPG <- tm_map(docsPPG, toSpacePPG, "/")
+docsPPG <- tm_map(docsPPG, toSpacePPG, "@")
+docsPPG <- tm_map(docsPPG, toSpacePPG, "\\|")
+inspect(docsPPG)
+```
+clean the text
+the tm_map() function is used to remove unnecessary white space, to convert the text to lower case, to remove common stopwords like ‘the’, “we”
+remove numbers and punctuation with removeNumbers and removePunctuation arguments
+text stemming to reduce words to their root form
+```{r}
+docsPPG <- tm_map(docsPPG, removeNumbers)
+docsPPG <- tm_map(docsPPG, removeWords, stopwords("english"))
+docsPPG <- tm_map(docsPPG, content_transformer(tolower))
+docsPPG <- tm_map(docsPPG, removePunctuation)
+docsPPG <- tm_map(docsPPG, stripWhitespace)
+docsPPG <- tm_map(docsPPG, removeWords, c("the", "this", "also", "its"))
+docsPPG <- tm_map(docsPPG, stemDocument)
+inspect(docsPPG)
+```
+Build a term-document matrix, ie a table containing the frequency of the words
+```{r}
+dtmPPG <- TermDocumentMatrix(docsPPG)
+mPPG <- as.matrix(dtmPPG)
+vPPG <- sort(rowSums(mPPG),decreasing=TRUE)
+dPPG <- data.frame(word = names(vPPG),freq=vPPG)
+head(dPPG, 30)
+```
+Generate the word cloud
+```{r}
+
+set.seed(1234)
+wordcloud(words = dPPG$word, freq = dPPG$freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+
+```
+PPB = Brunswick Reviews
+```{r text}
+filePathPPB <- "../data/Brunswick.txt"
+textPPB <- readLines(filePathPPB)
+```
+```{r}
+docsPPB <- Corpus(VectorSource(textPPB))
+inspect(docsPPB)
+```
+```{r}
+toSpacePPB <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docsPPB <- tm_map(docsPPB, toSpacePPB, "/")
+docsPPB <- tm_map(docsPPB, toSpacePPB, "@")
+docsPPB <- tm_map(docsPPB, toSpacePPB, "\\|")
+inspect(docsPPB)
+```
+```{r}
+docsPPB <- tm_map(docsPPB, removeNumbers)
+docsPPB <- tm_map(docsPPB, removeWords, stopwords("english"))
+docsPPB <- tm_map(docsPPB, content_transformer(tolower))
+docsPPB <- tm_map(docsPPB, removePunctuation)
+docsPPB <- tm_map(docsPPB, stripWhitespace)
+docsPPB <- tm_map(docsPPB, removeWords, c("the", "this", "also", "its", "blank")) 
+docsPPG <- tm_map(docsPPG, stemDocument)
+inspect(docsPPB)
+```
+```{r}
+dtmPPB <- TermDocumentMatrix(docsPPB)
+mPPB <- as.matrix(dtmPPB)
+vPPB <- sort(rowSums(mPPB),decreasing=TRUE)
+dPPB <- data.frame(word = names(vPPB),freq=vPPB)
+head(dPPB, 30)
+```
+```{r}
+set.seed(1235)
+wordcloud(words = dPPB$word, freq = dPPB$freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+```
+PRG = Footscray Reviews
+```{r}
+filePathPRG <- "../data/Footscray.txt"
+textPRG <- readLines(filePathPRG)
+```
+```{r}
+docsPRG <- Corpus(VectorSource(textPRG))
+inspect(docsPRG)
+```
+```{r}
+toSpacePRG <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docsPRG <- tm_map(docsPRG, toSpacePRG, "/")
+docsPRG <- tm_map(docsPRG, toSpacePRG, "@")
+docsPRG <- tm_map(docsPRG, toSpacePRG, "\\|")
+inspect(docsPRG)
+```
+```{r}
+docsPRG <- tm_map(docsPRG, removeNumbers)
+docsPRG <- tm_map(docsPRG, removeWords, stopwords("english"))
+docsPRG <- tm_map(docsPRG, content_transformer(tolower))
+docsPRG <- tm_map(docsPRG, removePunctuation)
+docsPRG <- tm_map(docsPRG, stripWhitespace)
+docsPRG <- tm_map(docsPRG, removeWords, c("the", "this", "also", "its", "blank", "I've")) 
+docsPRG <- tm_map(docsPRG, stemDocument)
+inspect(docsPRG)
+```
+```{r}
+dtmPRG <- TermDocumentMatrix(docsPRG)
+mPRG <- as.matrix(dtmPRG)
+vPRG <- sort(rowSums(mPRG),decreasing=TRUE)
+dPRG <- data.frame(word = names(vPRG),freq=vPRG)
+head(dPRG, 30)
+```
+```{r}
+set.seed(1236)
+wordcloud(words = dPRG$word, freq = dPRG$freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+```
+
+```{r}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+
+theme_set(theme_minimal())
+WeeklyRent <- read.csv("../data/WeeklyRent.csv")
+WeeklyRent$Year = as.Date(WeeklyRent$Year)
+ggplot(WeeklyRent, aes(x = Year, y = Weekly.Rent)) + 
+  geom_line(aes(color = Suburb), size = 1) +
+  scale_color_manual(values = c("#00AFBB", "#E7B800", "red")) +
+  theme_minimal() + ggtitle("Weekly Rent - 2008 to 2019") 
+```
+
+
+```{r}
+theme_set(theme_minimal())
+HousePrice <- read.csv("../data/HousePrice.csv")
+HousePrice$Year = as.Date(HousePrice$Year)
+ggplot(HousePrice, aes(x = Year, y = Price)) + 
+  geom_line(aes(color = Suburb), size = 1) +
+  scale_color_manual(values = c("#00AFBB", "#E7B800", "red")) +
+  theme_minimal() + ggtitle("House Price in Million - 2008 to 2019") 
+```
+```{r}
+theme_set(theme_minimal())
+Census <- read.csv("../data/Census.csv")
+Census
+ggplot(data=Census, aes(x=Suburb, y=Percentage, fill = Type)) +
+  geom_bar(stat="identity") + ggtitle("Owned vs. Rented properties") 
+```
+
