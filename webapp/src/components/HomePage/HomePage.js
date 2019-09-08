@@ -82,6 +82,12 @@ const HomePage = props => {
   return (
     <div className="mapContainer">
       <h1>Suburb Gentrification</h1>
+
+      <img
+        className="app-maps"
+        src={require("../../images/maps/Suburbs_Sports_and_Recreational_Activities.jpg")}
+        alt="Suburbs_Sports_and_Recreational_Activities"
+      />
       <Map
         google={props.google}
         zoom={12}
@@ -120,7 +126,11 @@ const HomePage = props => {
         ut.
       </p>
 
-      <img className="app-plots" src={require('../../images/ATO.jpg')} alt="ATO" />
+      <img
+        className="app-plots"
+        src={require("../../images/ATO.jpg")}
+        alt="ATO"
+      />
     </div>
   );
 };
