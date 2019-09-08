@@ -27,7 +27,7 @@ ggplot(sports, aes(SuburbTown)) + geom_bar(fill="#2c7fb8",width=0.6) +
   xlab('') + ggtitle('Sport and Recreational Facilities Count') +
   labs(subtitle="Department of Health and Human Services (data.vic.gov.au)") +
   theme(plot.subtitle=element_text(size=9, face="italic", color="#666666"))
-ggsave("../webapp/src/images/Sports.jpg")
+ggsave("../webapp/src/images/Sports.jpg", width = 5, height = 3)
 
 # https://rahulkg007.carto.com/builder/52f3de88-b6c3-4feb-8d5d-ea35862e9ffa/embed
 
