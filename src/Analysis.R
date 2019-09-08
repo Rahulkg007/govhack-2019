@@ -27,7 +27,7 @@ ggplot(sports, aes(SuburbTown)) + geom_bar(fill="#2c7fb8",width=0.6) +
   xlab('') + ggtitle('Sport and Recreational Facilities Count') +
   labs(subtitle="Department of Health and Human Services (data.vic.gov.au)") +
   theme(plot.subtitle=element_text(size=9, face="italic", color="#666666"))
-ggsave("../images/Sports.jpg")
+ggsave("../webapp/src/images/Sports.jpg")
 
 # https://rahulkg007.carto.com/builder/52f3de88-b6c3-4feb-8d5d-ea35862e9ffa/embed
 
@@ -49,7 +49,7 @@ ggplot(ato, aes(x=reorder(SuburbTown, Average.taxable.income.or.loss3..),y= Aver
   xlab('') + ylab('Average taxable income (AUD)') + ggtitle('Average Taxable Income (ATO)') +
   labs(subtitle="Australian Taxation Office - Taxation Statistics 2016-17") +
   theme(plot.subtitle=element_text(size=9, face="italic", color="#666666"))
-ggsave("../images/ATO.jpg")
+ggsave("../webapp/src/images/ATO.jpg", width = 5, height = 3)
 
 
 
@@ -65,19 +65,19 @@ ggplot(Pop, aes(x=reorder(Suburb,value),y=value)) +
   theme_minimal() + coord_flip()+xlab('') + ylab('Number of population') + ggtitle('Estimated population 30 June 2018') +
   labs(subtitle="Australian Bureau of Statistics 29 August 2019") +
   theme(plot.subtitle=element_text(size=9, face="italic", color="#666666"))
-ggsave("../images/Population1.jpg")
+ggsave("../webapp/src/images/Population1.jpg")
 
 ggplot(Pop, aes(x=reorder(Suburb,value),y=value))+geom_bar(stat = "identity", aes(fill = variable), position = "dodge") +
   xlab("Months") + ylab("Number of population") +coord_flip()+
   ggtitle("Number of population by Age") +
   theme_minimal()
-ggsave("../images/Population2.jpg")
+ggsave("../webapp/src/images/Population2.jpg")
 
 ggplot(Pop, aes(x=reorder(Suburb,value),y=value))+geom_bar(stat = "identity", aes(fill = Sex), position = "dodge") +
   xlab("Months") + ylab("Number of population") +coord_flip()+
   ggtitle("Number of population by Age") +
   theme_minimal()
-ggsave("../images/Population3.jpg")
+ggsave("../webapp/src/images/Population3.jpg")
 
 grey_theme <- theme(axis.text.x = element_text(colour = "grey", size = 10, angle = 45, hjust = 0.5, vjust = 0.5),
                       axis.text.y = element_text(colour = "grey", size = 10),
@@ -93,7 +93,7 @@ ggplot(Pop, aes(x = Suburb, y = value)) +
        y="Number of population") +
   grey_theme +
   theme(panel.grid = element_blank())
-ggsave("../images/Population4.jpg")
+ggsave("../webapp/src/images/Population4.jpg")
 
 ggplot(Pop, aes(x = Suburb, y = value)) +
   geom_bar(stat = "identity",  color='steelblue',fill='steelblue',position = "dodge") +
@@ -102,7 +102,7 @@ ggplot(Pop, aes(x = Suburb, y = value)) +
        x="Suburb",
        y="Number of population") +
   grey_theme+  theme(panel.grid = element_blank())
-ggsave("../images/Population5.jpg")
+ggsave("../webapp/src/images/Population5.jpg")
 
 
 
