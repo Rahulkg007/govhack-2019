@@ -7,6 +7,10 @@ body,
   padding: 0;
   font-family: "Merriweather", serif;
 }
+
+h1 {
+  margin: 50px 0 25px 0;
+}
 #map_canvas {
   position: relative;
 }
@@ -20,15 +24,15 @@ body,
 }
 
 img {
-    display: block;
-    position: relative;
-    margin: 20px 0;
+  display: block;
+  position: relative;
+  margin: 20px 0;
 }
 .app-plots {
-  width: 600px;
+  max-width: 750px;
+  margin: 50px auto;
 }
 
 .app-maps {
   max-width: 960px;
-
 }
