@@ -88,9 +88,12 @@ ggplot(Pop_pct, aes(x = factor(Suburb), y = Pop_pct$value, fill = factor(Pop_pct
 ggsave("../webapp/src/images/PopulationbyAge.jpg", width = 5, height = 3)
 
 ggplot(Pop_series, aes(x = Year, y = Person)) + 
-  geom_line(aes(color = Suburb), size = 1) +
-  scale_color_manual(values = c("#00AFBB", "#E7B800","#FC4E07")) +
-  theme_bw()
+  geom_line(aes(color = Suburb), size = 2) +
+  scale_color_manual(values = c("#00AFBB", "#E7B800","#FC4E07"))+
+  labs(title="",
+     x="Year",
+     y="Number of population")+
+  theme_minimal()
 ggsave("../webapp/src/images/PopulationSeries.jpg", width = 5, height = 3)
 
 
